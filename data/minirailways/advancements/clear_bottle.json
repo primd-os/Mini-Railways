@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass_bottle"
+            ]
+          }
+        ],
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "dimension": "minirailways:game"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "minirailways:main/clear_bottle"
+  }
+}
