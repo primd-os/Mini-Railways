@@ -1,0 +1,1 @@
+data modify storage hub:hub navigation_book append value '["- ",{"text":"[","extra":[{"text":"Mini Railways","color":"dark_gray"},"]"],"color":"dark_blue","clickEvent":{"action":"run_command","value":"/function minirailways:start/join_game"}}]'

@@ -7,7 +7,7 @@ function minirailways:main/item_loop
 
 team add mr.Team
 team modify mr.Team prefix {"text": "Mini Railways | "}
-team modify mr.Team collisionRule never
+team modify mr.Team collisionRule always
 team modify mr.Team friendlyFire false
 
 schedule function minirailways:start/main 1t replace

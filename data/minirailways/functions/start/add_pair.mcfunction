@@ -1,5 +1,5 @@
-summon marker 0 0 0 {Tags:["mr.Spawner", "mr.Source"]}
-summon marker 0 0 0 {Tags:["mr.Spawner", "mr.Destination"]}
+summon marker 0 0 0 {Tags:["mr.Spawner", "mr.new", "mr.Source"]}
+summon marker 0 0 0 {Tags:["mr.Spawner", "mr.new", "mr.Destination"]}
 
 execute as @e[type=marker,x=0,tag=mr.Spawner,tag=!mr.Generated] run tag @s add mr.ToRemove
 
