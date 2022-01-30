@@ -1,0 +1,1 @@
+execute if score @s warp = GameId mr.Variables run function minirailways:start/join_game

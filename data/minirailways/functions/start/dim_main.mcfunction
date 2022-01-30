@@ -14,14 +14,18 @@ execute as @e[type=item,x=0,tag=!mr.Processed] run data modify entity @s Item.ta
 execute as @e[type=item,x=0,tag=!mr.Processed] run data modify entity @s[nbt={Item:{id: "minecraft:hopper"}}] Item.id set value "minecraft:hopper_minecart"
 tag @e[type=item,x=0] add mr.Processed
 
+execute as @e[type=marker,x=0,tag=mr.Source] at @s unless block ~ 1 ~ air run tag @s remove mr.new
+execute as @e[type=marker,x=0,tag=mr.Destination] at @s unless block ~ 2 ~ air run tag @s remove mr.new
+
 execute as @e[type=marker,x=0,tag=mr.new] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0 0 1 1.0 ~ ~ ~ 0 10 0 1 4 force
 execute if score endgame mr.Variables matches 0 run scoreboard players remove @e[type=marker,x=0,tag=mr.Destination] mr.Cooldown 1
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-180..0}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.0 1.0 0.0 1.0 ~ ~ ~ 0 10 0 1 4 force
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-180}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0]
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-180}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] 10 1 1
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-360..-180}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.984 1 0 1.0 ~ ~ ~ 0 10 0 1 4 force
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-360}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0]
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-362}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0]
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-360}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] 10 1 1
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-362}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] 10 2 1
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-360}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 1 0 0 1.0 ~ ~ ~ 0 10 0 1 4 force
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run tellraw @a[x=0] [{"text": "Time: ","bold": true},{"score":{"name":"time","objective":"mr.Variables"}}]
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run tellraw @a[x=0] [{"text": "Score: ","bold": true},{"score":{"name":"score","objective":"mr.Variables"}}]
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run gamemode spectator @a[x=0]
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run schedule function minirailways:start/reset_map 10s replace
@@ -29,4 +33,4 @@ execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if
 
 effect give @a[x=0] saturation 2 2 true
 effect give @a[x=0] resistance 2 4 true
-scoreboard players add score mr.Variables 1
+scoreboard players add time mr.Variables 1

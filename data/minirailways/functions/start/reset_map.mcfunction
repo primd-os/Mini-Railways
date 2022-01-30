@@ -5,3 +5,4 @@ execute in minirailways:game run scoreboard players set endgame mr.Variables 0
 execute in minirailways:game run gamemode spectator @a[x=0]
 execute in minirailways:game run effect clear @a[x=0]
 execute in minirailways:game run kill @e[type=marker,tag=mr.Spawner]
+execute in minirailways:game run clear @a[x=0]
