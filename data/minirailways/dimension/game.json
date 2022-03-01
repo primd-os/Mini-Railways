@@ -1,18 +1,16 @@
 {
-    "generator": {
-      "settings": {
-        "structures": {
-          "structures": {}
-        },
-        "layers": [
-          {
-            "height": 1,
-            "block": "minecraft:white_concrete"
-          }
-        ],
-        "biome": "minecraft:the_void"
-      },
-      "type": "minecraft:flat"
-    },
-    "type": "minirailways:game"
+  "type": "minirailways:game",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:the_void",
+      "layers": [
+        {
+          "block": "minecraft:white_concrete",
+          "height": 1
+        }
+      ],
+      "structure_overrides": []
+    }
+  }
 }
