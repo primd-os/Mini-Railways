@@ -11,4 +11,5 @@ forceload remove -21 -18 21 18
 tp @a[x=0] 0 1 0 -90 0
 gamemode adventure @a[x=0]
 tag @a[x=0] remove mr.player
+execute as @a[x=0] run function minirailways:start/give_book
 scoreboard players set GameState mr.Variables 0
