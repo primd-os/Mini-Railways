@@ -1,4 +1,5 @@
 execute if block ~ 1 ~ hopper{Items:[{Count:64b,Slot:0b}]} run scoreboard players operation @s mr.Cooldown += reset_cooldown mr.Variables
+execute if score @s mr.Cooldown matches 10000.. run scoreboard players set @s mr.Cooldown 10000
 execute if block ~ 1 ~ hopper{Items:[{Count:64b,Slot:0b}]} run playsound minecraft:block.amethyst_block.hit master @a[x=0] ~ ~ ~ 0.5 2 0.2
 execute if block ~ 1 ~ hopper{Items:[{Count:64b,Slot:0b}]} run scoreboard players add score mr.Variables 1
 execute as @s[tag=mr.Blue] run item replace block ~ 1 ~ container.0 with minecraft:blue_concrete 63

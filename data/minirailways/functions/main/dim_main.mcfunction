@@ -19,18 +19,18 @@ execute as @e[type=marker,x=0,tag=mr.Destination] at @s unless block ~ 2 ~ air r
 
 execute as @e[type=marker,x=0,tag=mr.Destination,tag=mr.new] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0 0 1 1.0 ~ ~ ~ 0 10 0 1 4 force
 execute as @e[type=marker,x=0,tag=mr.Source,tag=mr.new] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0 0.882 1 1.0 ~ ~ ~ 0 10 0 1 2 force
-execute if score endgame mr.Variables matches 0 run scoreboard players remove @e[type=marker,x=0,tag=mr.Destination] mr.Cooldown 1
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-180..0}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.0 1.0 0.0 1.0 ~ ~ ~ 0 10 0 1 4 force
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-180}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] 10 1 1
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-360..-180}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.984 1 0 1.0 ~ ~ ~ 0 10 0 1 4 force
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-360}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] 10 1 1
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-362}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] 10 2 1
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-360}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 1 0 0 1.0 ~ ~ ~ 0 10 0 1 4 force
-execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run tellraw @a[x=0] [{"text": "Time: ","bold": true},{"score":{"name":"time","objective":"mr.Variables"}}]
-execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run tellraw @a[x=0] [{"text": "Score: ","bold": true},{"score":{"name":"score","objective":"mr.Variables"}}]
-execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run gamemode spectator @a[x=0]
-execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run schedule function minirailways:start/reset_map 10s replace
-execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-600}] if score endgame mr.Variables matches 0 run scoreboard players set endgame mr.Variables 1
+execute if score GameState mr.Variables matches 1 run scoreboard players remove @e[type=marker,x=0,tag=mr.Destination] mr.Cooldown 1
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-280..0}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.0 1.0 0.0 1.0 ~ ~ ~ 0 10 0 1 4 force
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-280}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] ~ ~ ~ 10 1 1
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-560..-280}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.984 1 0 1.0 ~ ~ ~ 0 10 0 1 4 force
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-560}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] ~ ~ ~ 10 1 1
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-562}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] ~ ~ ~ 10 2 1
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-560}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 1 0 0 1.0 ~ ~ ~ 0 10 0 1 4 force
+execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-900}] if score GameState mr.Variables matches 1 run tellraw @a[x=0] [{"text": "Time: ","bold": true},{"score":{"name":"time","objective":"mr.Variables"}}]
+execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-900}] if score GameState mr.Variables matches 1 run tellraw @a[x=0] [{"text": "Score: ","bold": true},{"score":{"name":"score","objective":"mr.Variables"}}]
+execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-900}] if score GameState mr.Variables matches 1 run gamemode spectator @a[x=0]
+execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-900}] if score GameState mr.Variables matches 1 run schedule function minirailways:start/reset_map 10s replace
+execute if entity @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=..-900}] if score GameState mr.Variables matches 1 run scoreboard players set GameState mr.Variables 2
 
 effect give @a[x=0] saturation 2 2 true
 effect give @a[x=0] resistance 2 4 true
