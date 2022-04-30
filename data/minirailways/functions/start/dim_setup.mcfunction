@@ -1,9 +1,9 @@
 forceload add -100 -100 100 100
-kill @e[x=0,type=!player,type=!marker]
-kill @e[x=0,type=!player,type=!marker]
-kill @e[x=0,type=!player,type=!marker]
-fill -21 0 -18 21 0 18 white_concrete
 fill -21 1 -18 21 15 18 air
+fill -21 0 -18 21 0 18 white_concrete
+kill @e[x=0,type=!player,type=!marker]
+kill @e[x=0,type=!player,type=!marker]
+kill @e[x=0,type=!player,type=!marker]
 clear @a[x=0]
 give @a[x=0] netherite_pickaxe{CanDestroy:["#minirailways:destroy"],Unbreakable:1b,HideFlags:24}
 give @a[x=0] rail{CanPlaceOn:["#minirailways:place_on"],CanDestroy:["#minirailways:destroy"],HideFlags:24} 32
@@ -28,4 +28,5 @@ forceload remove all
 scoreboard players set GameState mr.Variables 1
 
 execute as @a[x=0,tag=mr.player] run function minirailways:start/add_pair
+execute if score GmaeDifficulty mr.Variables matches -1 as @a[x=0,tag=mr.player] run function minirailways:start/add_pair
 schedule function minirailways:main/slow_loop 1t replace

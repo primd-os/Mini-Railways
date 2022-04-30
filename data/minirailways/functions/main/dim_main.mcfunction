@@ -20,7 +20,7 @@ execute as @e[type=marker,x=0,tag=mr.Destination] at @s unless block ~ 2 ~ air r
 execute as @e[type=marker,x=0,tag=mr.Destination,tag=mr.new] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0 0 1 1.0 ~ ~ ~ 0 10 0 1 4 force
 execute as @e[type=marker,x=0,tag=mr.Source,tag=mr.new] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0 0.882 1 1.0 ~ ~ ~ 0 10 0 1 2 force
 execute if score GameState mr.Variables matches 1 run scoreboard players remove @e[type=marker,x=0,tag=mr.Destination] mr.Cooldown 1
-execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-280..0}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.0 1.0 0.0 1.0 ~ ~ ~ 0 10 0 1 4 force
+execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-280..100}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.0 1.0 0.0 1.0 ~ ~ ~ 0 10 0 1 4 force
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-280}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] ~ ~ ~ 10 1 1
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-560..-280}] at @s positioned ~0.5 ~2 ~0.5 run particle dust 0.984 1 0 1.0 ~ ~ ~ 0 10 0 1 4 force
 execute as @e[type=marker,x=0,tag=mr.Destination,scores={mr.Cooldown=-560}] at @s positioned ~0.5 ~2 ~0.5 run playsound block.glass.break master @a[x=0] ~ ~ ~ 10 1 1
